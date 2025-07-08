@@ -1,0 +1,7 @@
+@Metadata.layer: #CORE
+annotate entity ZA_IRN_CANCEL with
+{
+  @EndUserText.label: 'IRN Cancel Reason'
+  IRN_CANCEL;
+
+}

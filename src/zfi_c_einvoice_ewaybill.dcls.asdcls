@@ -1,0 +1,10 @@
+@EndUserText.label: 'Access Control EInvoice Projection'
+@MappingRole: true
+define role ZFI_C_EINVOICE_EWAYBILL {
+    grant
+        select
+            on
+                ZFI_C_EINVOICE_EWAYBILL
+                    where
+                    inheriting conditions from entity ZFI_I_EINVOICE_EWAYBILL;
+}

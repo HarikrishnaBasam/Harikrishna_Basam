@@ -1,0 +1,33 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "user_id_password",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "zuseridpass"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_B7C42537B50C4E7995DE0ED831C26744C8F2CEEA_TM",
+    "semanticObject": "zuser_id_pass",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_B7C42537B50C4E7995DE0ED831C26744C8F2CEEA_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "user_id_password"
+      }
+    }
+  ]
+}

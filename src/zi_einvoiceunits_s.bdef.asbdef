@@ -1,0 +1,65 @@
+managed implementation in class ZBP_I_EINVOICEUNITS_S unique;
+strict;
+with draft;
+define behavior for ZI_EinvoiceUnits_S alias EinvoiceUnitsAll
+draft table ZUNITS_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _EinvoiceUnits { create ( features : instance ); with draft; }
+}
+
+define behavior for ZI_EinvoiceUnits alias EinvoiceUnits ##UNMAPPED_FIELD
+persistent table ZUNITS
+draft table ZUNITS_D
+lock dependent by _EinvoiceUnitsAll
+authorization dependent by _EinvoiceUnitsAll
+
+{
+  field ( mandatory : create )
+   Units,
+   EinvoiceUnits;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Units,
+   EinvoiceUnits;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZUNITS
+  {
+    Units = UNITS;
+    EinvoiceUnits = EINVOICE_UNITS;
+    Text_000 = TEXT;
+  }
+
+  association _EinvoiceUnitsAll { with draft; }
+}

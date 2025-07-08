@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+annotate entity ZA_Transport_Details with
+//  parameters
+//    parameter_name
+{
+  //  @EndUserText.label: 'Transport Mode'
+  @UI: { lineItem: [{ position: 10 , label: 'Transport Mode' }] }
+  transport_mode;
+  //  @EndUserText.label: 'Vehicle Number'
+  @UI: { lineItem: [{ position: 20 , label: 'Vehicle Number' }] }
+  vehicle_no;
+  //  @EndUserText.label: 'Transport Distance'
+  @UI: { lineItem: [{ position: 30 , label: 'Transport Distance' }] }
+  trans_distance;
+  //  @UI: { lineItem: [{ position: 35 , label: 'Export PinCode' }] }
+  //  pin_code;
+  //  @UI: { lineItem: [{ position: 37 , label: 'Export City' }] }
+  //  city;
+  //  @EndUserText.label: 'Transporter Name'
+  @UI: { lineItem: [{ position: 40 , label: 'Transporter Name' }] }
+  transporter_name;
+  //  @EndUserText.label: 'Transporter GST ID'
+  @UI: { lineItem: [{ position: 50 , label: 'Transporter GST ID' }] }
+  transporter_id;
+  //  @EndUserText.label: 'Transport Document Date'
+  @UI: { lineItem: [{ position: 60 , label: 'Transport Document Date' }] }
+  trans_doc_date;
+  //  @EndUserText.label: 'Transport Document Number'
+  @UI: { lineItem: [{ position: 70 , label: 'Transport Document Number' }] }
+  trans_doc_no;
+  //  @EndUserText.label: 'Transport Vehicle Type'
+  @UI: { lineItem: [{ position: 80 , label: 'Transport Vehicle Type' }] }
+  vehicle_type;
+
+
+}

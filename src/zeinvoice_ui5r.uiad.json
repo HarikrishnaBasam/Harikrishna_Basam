@@ -1,0 +1,33 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "EInvoice And Eway Bill",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "zeinvoice"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_7FD25085D7591006F6644EB708F81E5C431F24F1_TM",
+    "semanticObject": "zeinvoice",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_7FD25085D7591006F6644EB708F81E5C431F24F1_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "EInvoice And Eway Bill"
+      }
+    }
+  ]
+}

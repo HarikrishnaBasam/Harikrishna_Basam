@@ -1,0 +1,4 @@
+@EndUserText.label: 'service Def E-Invocie And E-WAY Bill'
+define service ZFI_EINVOICE_EWAY_BILL {
+  expose ZFI_C_EINVOICE_EWAYBILL;
+}

@@ -1,0 +1,26 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "E-Invoice And Eway Bill",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "title": "EINVOICE_EWAYBILL"
+  },
+  "sections": [
+    {
+      "id": "SECTION_1",
+      "title": "Section",
+      "visualizations": [
+        {
+          "id": "SECTION_1_VIZ_1",
+          "ladiAssignment": {
+            "ladiId": "ZEINVOICE_UI5R",
+            "tileId": "UI5R_7FD25085D7591006F6644EB708F81E5C431F24F1_AL"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+headerInfo: {
+   typeName:       'E Invoice And EWAY Bill',
+   typeNamePlural: 'E Invoice And EWAY Bill',
+     title: {  type: #STANDARD, label: 'Title', value: 'Invoice'},
+     description: { label: 'Description', value: 'invoice' } },
+     presentationVariant: [{  sortOrder: [{ by: 'invoice', direction: #ASC }]
+//     visualizations: [{ type: #AS_LINEITEM }]
+      }]
+     }
+@Search.searchable: true
+annotate entity ZFI_C_EINVOICE_EWAYBILL with
+{
+  @UI.facet: [
+       {
+                     id : 'Invoice',
+                       type: #IDENTIFICATION_REFERENCE,
+                     label: 'E Invoice And EWAY Bill',
+                     position: 10
+                     },
+          {
+    id: 'Fieldgroup1-Id',
+    type: #FIELDGROUP_REFERENCE,
+    label: 'Invoice Deatils',
+    parentId: 'Invoice',
+    targetQualifier: 'Fieldgroup1',
+    position: 10
+  },
+
+  {
+  id: 'Fieldgroup2-Id',
+  type: #FIELDGROUP_REFERENCE,
+  label: 'E-Invoice & E-WAY Bill Status',
+  parentId: 'Invoice',
+  targetQualifier: 'Fieldgroup2',
+  position: 20
+
+  },
+    {
+  id: 'Fieldgroup3-Id',
+  type: #FIELDGROUP_REFERENCE,
+  label: 'Customer Details',
+  parentId: 'Invoice',
+  targetQualifier: 'Fieldgroup3',
+  position: 40
+
+  },
+  {
+  id: 'Fieldgroup4-Id',
+  type: #FIELDGROUP_REFERENCE,
+  label: 'E-Invoice & E-WAY Bill Number',
+  parentId: 'Invoice',
+  targetQualifier: 'Fieldgroup4',
+  position: 50
+  },
+    {
+  id: 'Fieldgroup5-Id',
+  type: #FIELDGROUP_REFERENCE,
+  label: 'Company Code Deatils',
+  parentId: 'Invoice',
+  targetQualifier: 'Fieldgroup5',
+  position: 30
+  }
+  ]
+
+
+
+  @UI: { lineItem: [{ position: 10 , label: 'Invoice Number'},
+              { type: #FOR_ACTION, dataAction: 'IRN_Generate', invocationGrouping: #ISOLATED , label: 'Generate IRN',position: 10 },
+                { type: #FOR_ACTION, dataAction: 'IRN_Cancel',label: 'Cancel IRN',position: 20 },
+                 { type: #FOR_ACTION, dataAction: 'Trans_Detail',label: 'Transport Details',position: 25 },
+                { type: #FOR_ACTION, dataAction: 'EWAY_Generate',label: 'Generate EWAY-Bill',position: 30 },
+                { type: #FOR_ACTION, dataAction: 'EWAY_Cancel',label: 'Cancel EWAY-Bill',position: 40 },
+                { type: #FOR_ACTION, dataAction: 'GET_EWAY_Bill',label: 'Get E-Waybill',position: 50 }
+              ],
+          identification: [{ position: 10, label: 'Invoice Number' }],
+           fieldGroup: [{ position: 10, qualifier: 'Fieldgroup1' }]
+              }
+  @UI.selectionField: [{ position: 10 }]
+  @Search.defaultSearchElement: true
+  invoice;
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [{ position: 15 , label: 'E-Invocie Status',
+  criticality: 'Criticality',criticalityRepresentation:#WITH_ICON ,importance: #HIGH}]
+  @UI.identification: [{ position: 15, label: 'E-Invocie Status' }]
+
+  @UI: { fieldGroup: [{ position: 10, qualifier: 'Fieldgroup2' }] }
+
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{
+    entity: {
+        name: 'ZI_STATUS',
+        element: 'status'
+    },
+    useForValidation: true,
+    label: 'Select Status'
+  }]
+  status;
+  @UI: { lineItem: [{ position: 17 , label: 'E-WAY Bill Status',criticality: 'Criticality_ewy',
+        criticalityRepresentation:#WITH_ICON ,importance: #HIGH }],
+   identification: [{ position: 17, label: 'E-WAY Bill Status' }],
+   fieldGroup: [{ position: 20, qualifier: 'Fieldgroup2' }] }
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{
+  entity: {
+      name: 'ZI_STATUS_WAY',
+      element: 'status'
+  },
+  useForValidation: true,
+  label: 'Select Status'
+  }]
+  eway_status;
+  @UI: { lineItem: [{ position: 20 , label: 'Billing Type' }],
+   identification: [{ position: 20, label: 'Billing Type' }],
+   fieldGroup: [{ position: 20, qualifier: 'Fieldgroup1' }]
+  }
+  doc_type;
+  @UI: { lineItem: [{ position: 30 , label: 'Billing Date' }],
+   identification: [{ position: 30, label: 'Billing Date' }],
+   fieldGroup: [{ position: 30, qualifier: 'Fieldgroup1' }]
+  }
+  @Search.defaultSearchElement: true
+  billing_date;
+  @UI: { lineItem: [{ position: 35 , label: 'ODN Number' }],
+  identification: [{ position: 35, label: 'ODN Number' }],
+  fieldGroup: [{ position: 30, qualifier: 'Fieldgroup1' }]
+  }
+  @Search.defaultSearchElement: true
+  Odn_numer;
+  @UI: { lineItem: [{ position: 50 , label: 'Account Document Number' }],
+  identification: [{ position: 50, label: 'Account Document Number' }],
+  fieldGroup: [{ position: 40, qualifier: 'Fieldgroup1' }]
+  }
+  acc_doc_number;
+  @UI: { lineItem: [{ position: 52 , label: 'Fiscal Year' }],
+  identification: [{ position: 52, label: 'Fiscal Year' }],
+  fieldGroup: [{ position: 50, qualifier: 'Fieldgroup1' }]
+  }
+  FiscalYear;
+  @UI: { lineItem: [{ position: 60 , label: 'Company Code' }],
+  identification: [{ position: 60, label: 'Company Code' }],
+  fieldGroup: [{ position: 10, qualifier: 'Fieldgroup5' }]
+  }
+  CompanyCode;
+  @UI: { lineItem: [{ position: 70 , label: 'Company Name' }],
+    identification: [{ position: 70, label: 'Company Name' }],
+    fieldGroup: [{ position: 20, qualifier: 'Fieldgroup5' }]
+  }
+  CompanyCodeName;
+  @UI: { lineItem: [{ position: 80 , label: 'Company GST Number' }],
+    identification: [{ position: 80, label: 'Company GST Number' }],
+    fieldGroup: [{ position: 30, qualifier: 'Fieldgroup5' }]
+  }
+  com_gst;
+  @UI: { lineItem: [{ position: 85 , label: 'Companycode Currency' }],
+  identification: [{ position: 85, label: 'Companycode Currency' }],
+  fieldGroup: [{ position: 52, qualifier: 'Fieldgroup1' }]
+  }
+  stat_currency;
+  @UI: { lineItem: [{ position: 90 , label: 'Transaction Currency' }],
+   identification: [{ position: 90, label: 'Transaction Currency' }],
+   fieldGroup: [{ position: 53, qualifier: 'Fieldgroup1' }]
+  }
+  trans_currency;
+  @UI: { lineItem: [{ position: 100 , label: 'Total Amount' }],
+   identification: [{ position: 100, label: 'Total Amount' }],
+    fieldGroup: [{ position: 55, qualifier: 'Fieldgroup1' }]
+  }
+  total_amount;
+  @UI: { lineItem: [{ position: 110 , label: 'Total Tax Amount' }],
+  identification: [{ position: 110, label: 'Total Tax Amount' }],
+  fieldGroup: [{ position: 60, qualifier: 'Fieldgroup1' }]
+  }
+  total_tax_amount;
+  @UI: { lineItem: [{ position: 120 , label: 'Total Amount With Tax Amount' }],
+   identification: [{ position: 120, label: 'Total Amount With Tax Amount' }],
+   fieldGroup: [{ position: 70, qualifier: 'Fieldgroup1' }]
+  }
+  total_Value;
+  @UI: { lineItem: [{ position: 125 , label: 'Customer Code' }],
+  identification: [{ position: 125, label: 'Customer Code' }],
+  fieldGroup: [{ position: 10, qualifier: 'Fieldgroup3' }]
+  }
+  SoldToParty;
+  @UI: { lineItem: [{ position: 130 , label: 'Ship-To-Party' }],
+    identification: [{ position: 130, label: 'Ship-To-Party' }],
+    fieldGroup: [{ position: 10, qualifier: 'Fieldgroup3' }]
+  }
+  SoldToParty1;
+  @UI: { lineItem: [{ position: 140 , label: 'Customer Name' }],
+  identification: [{ position: 140, label: 'Customer Name' }],
+  fieldGroup: [{ position: 20, qualifier: 'Fieldgroup3' }] }
+  customername;
+  @UI: { lineItem: [{ position: 150 , label: 'Street' }],
+  identification: [{ position: 150, label: 'Street' }] ,
+  fieldGroup: [{ position: 30, qualifier: 'Fieldgroup3' }]}
+  StreetName;
+  @UI: { lineItem: [{ position: 160 , label: 'City' }],
+   identification: [{ position: 160, label: 'City' }],
+   fieldGroup: [{ position: 40, qualifier: 'Fieldgroup3' }]
+   }
+  CityName;
+  @UI: { lineItem: [{ position: 170 , label: 'Country' }],
+  identification: [{ position: 170, label: 'Country' }],
+  fieldGroup: [{ position: 50, qualifier: 'Fieldgroup3' }]
+  }
+  country;
+  @UI: { lineItem: [{ position: 180 , label: 'Region' }],
+  identification: [{ position: 180, label: 'Region' }],
+  fieldGroup: [{ position: 60, qualifier: 'Fieldgroup3' }]
+  }
+  Region;
+  @UI: { lineItem: [{ position: 190 , label: 'Postal Code' }],
+   identification: [{ position: 190, label: 'Postal Code' }],
+   fieldGroup: [{ position: 70, qualifier: 'Fieldgroup3' }]
+  }
+  PostalCode;
+  @UI: { lineItem: [{ position: 200 , label: 'Customer GST Number' }],
+    identification: [{ position: 200, label: 'Customer GST Number' }],
+    fieldGroup: [{ position: 80, qualifier: 'Fieldgroup3' }]
+  }
+  cust_gst;
+  @UI: { lineItem: [{ position: 220 , label: 'IRN Number' }],
+  identification: [{ position: 220, label: 'IRN Number' }],
+  fieldGroup: [{ position: 10, qualifier: 'Fieldgroup4' }]
+  }
+  irnnumber;
+  @UI: { lineItem: [{ position: 230 , label: 'IRN Date' }],
+  identification: [{ position: 230, label: 'IRN Date' }],
+  fieldGroup: [{ position: 20, qualifier: 'Fieldgroup4' }]
+  }
+  ackdt;
+  @UI: { lineItem: [{ position: 240 , label: 'IRN Status' }],
+  identification: [{ position: 240, label: 'IRN Status' }],
+  fieldGroup: [{ position: 30, qualifier: 'Fieldgroup4' }]
+  }
+  remarks;
+  @UI: { lineItem: [{ position: 250 , label: 'IRN Error' }],
+  identification: [{ position: 250, label: 'IRN Error' }],
+  fieldGroup: [{ position: 60, qualifier: 'Fieldgroup4' }]
+  }
+  errormsg;
+  @UI: { lineItem: [{ position: 260 , label: 'E-WAY Bill Number' }],
+  identification: [{ position: 260, label: 'E-WAY Bill Number' }],
+  fieldGroup: [{ position: 40, qualifier: 'Fieldgroup4' }]
+  }
+  ewbno;
+  @UI: { lineItem: [{ position: 270 , label: 'E-WAY Bill Date' }],
+    identification: [{ position: 270, label: 'E-WAY Bill Date' }],
+    fieldGroup: [{ position: 50, qualifier: 'Fieldgroup4' }]
+  }
+  ewbdt;
+  @UI: { lineItem: [{ position: 280 , label: 'E-WAY Bill error' }],
+   identification: [{ position: 280, label: 'E-WAY Bill error' }],
+   fieldGroup: [{ position: 70, qualifier: 'Fieldgroup4' }]
+  }
+  ewb_error_msg;
+  @UI.hidden: true
+  trans_status;
+
+}

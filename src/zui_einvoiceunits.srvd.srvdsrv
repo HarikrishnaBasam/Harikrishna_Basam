@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_EinvoiceUnits_S'
+define service ZUI_EINVOICEUNITS {
+  expose ZI_EINVOICEUNITS_S as EinvoiceUnitsAll;
+  expose ZI_EINVOICEUNITS as EinvoiceUnits;
+}

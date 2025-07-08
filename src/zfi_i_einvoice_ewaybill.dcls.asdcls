@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access Control EInvoice'
+@MappingRole: true
+define role ZFI_I_EINVOICE_EWAYBILL {
+    grant
+        select
+            on
+                ZFI_I_EINVOICE_EWAYBILL
+                    where
+                    ( doc_type ) = aspect pfcg_auth( ZAO_EINV,ZEINVOICE, ACTVT = '03' );
+                        
+}

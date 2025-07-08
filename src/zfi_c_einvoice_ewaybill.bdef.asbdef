@@ -1,0 +1,15 @@
+projection;
+strict ( 1 );
+
+define behavior for ZFI_C_EINVOICE_EWAYBILL //alias <alias_name>
+{
+
+  use action IRN_Generate;
+  use action IRN_Cancel;
+  use action Trans_Detail;
+  use action EWAY_Generate;
+  use action EWAY_Cancel;
+  use action GET_EWAY_Bill;
+
+  use function GetDefaultsForTrans_Detail;
+}

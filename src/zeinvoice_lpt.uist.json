@@ -1,0 +1,17 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Einvoice And Eway Bill",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "title": "E Invoice And Eway Bill",
+    "sortPriority": 100.0
+  },
+  "pages": [
+    {
+      "name": "ZEINVOICE_LPT"
+    }
+  ]
+}

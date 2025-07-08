@@ -1,0 +1,21 @@
+managed implementation in class zbp_i_user_id_pass unique;
+strict ( 2 );
+
+define behavior for Z_I_USER_ID_PASS //alias <alias_name>
+persistent table zuser_id_pass
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly : update ) Channel, UserId;
+    mapping for zuser_id_pass
+    {
+      Channel  = channel;
+      UserId   = user_id;
+      Password = password;
+      Url      = url;
+    }
+}

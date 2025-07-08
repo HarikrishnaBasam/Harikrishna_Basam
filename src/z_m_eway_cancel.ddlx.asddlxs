@@ -1,0 +1,8 @@
+@Metadata.layer: #CORE
+annotate entity ZA_EWAY_CANCEL with //parameters
+//        parameter_name
+{
+  @EndUserText.label: 'EWAY Bill Cancel Reason'
+  eway_CANCEL;
+
+}

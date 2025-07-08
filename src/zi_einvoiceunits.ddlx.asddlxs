@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'EinvoiceUnits', 
+    typeNamePlural: 'EinvoiceUnitss', 
+    title: {
+      type: #STANDARD, 
+      label: 'EInvoice Units', 
+      value: 'Units'
+    }
+  }
+}
+annotate view ZI_EinvoiceUnits with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @Consumption.valueHelpDefinition: [ {
+    entity: {
+      name: 'I_UnitOfMeasure', 
+      element: 'UnitOfMeasure'
+    }
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_EinvoiceUnits', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'EInvoice Units', 
+    position: 1 
+  } ]
+  Units;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  @Consumption.valueHelpDefinition: [ {
+    entity: {
+      name: 'I_UnitOfMeasure', 
+      element: 'UnitOfMeasure'
+    }
+  } ]
+  EinvoiceUnits;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Text_000'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Text_000'
+  } ]
+  Text_000;
+}

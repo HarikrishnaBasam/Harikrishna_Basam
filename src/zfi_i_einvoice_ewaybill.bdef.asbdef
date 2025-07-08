@@ -1,0 +1,22 @@
+unmanaged implementation in class zbp_fi_i_einvoice_ewaybill unique;
+strict ( 1 );
+
+define behavior for ZFI_I_EINVOICE_EWAYBILL alias _Invoice
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+  //  update;
+  //  delete;
+  field ( readonly : update ) invoice;
+  action ( features : instance ) IRN_Generate result [1] $self;
+  action ( features : instance ) IRN_Cancel parameter ZA_IRN_CANCEL result [1] $self;
+  action ( features : instance ) Trans_Detail parameter ZA_Transport_Details result [1] $self
+         { default function GetDefaultsForTrans_Detail; }
+  action ( features : instance ) EWAY_Generate result [1] $self;
+  action ( features : instance ) EWAY_Cancel parameter ZA_EWAY_CANCEL result [1] $self;
+  action ( features : instance ) GET_EWAY_Bill result [1] $self;
+
+}

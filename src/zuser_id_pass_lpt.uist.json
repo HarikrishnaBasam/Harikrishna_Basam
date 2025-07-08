@@ -1,0 +1,17 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "User Id Password",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "title": "User Id Password",
+    "sortPriority": 100.0
+  },
+  "pages": [
+    {
+      "name": "ZUSER_ID_PASS_LPT"
+    }
+  ]
+}

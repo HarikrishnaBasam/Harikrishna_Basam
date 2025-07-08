@@ -1,0 +1,26 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "User Id Password",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "title": "User Id Password"
+  },
+  "sections": [
+    {
+      "id": "SECTION_1",
+      "title": "Section",
+      "visualizations": [
+        {
+          "id": "SECTION_1_VIZ_1",
+          "ladiAssignment": {
+            "ladiId": "ZUSER_ID_PASS_UI5R",
+            "tileId": "UI5R_B7C42537B50C4E7995DE0ED831C26744C8F2CEEA_AL"
+          }
+        }
+      ]
+    }
+  ]
+}

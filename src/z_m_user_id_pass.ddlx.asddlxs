@@ -1,0 +1,19 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:
+{typeName: 'User Id Password', typeNamePlural:'User Id And Password',title:{ type:#STANDARD,
+label:'User Id And Password Maintain Table', value: 'UserID' }
+}}
+annotate entity Z_C_USER_ID_PASS with
+{
+  @UI.facet: [{id:'UserID', purpose:#STANDARD, type:#IDENTIFICATION_REFERENCE, label:'User Id', position:10  }]
+  @UI: {lineItem: [{position: 10}], identification: [{position: 10}], selectionField: [{ position: 10 }] }
+  Channel;
+  @UI: {lineItem: [{position: 15}], identification: [{position: 15}], selectionField: [{ position: 10 }] }
+  UserId;
+  @UI: {lineItem: [{position: 20}], identification: [{position: 20}]}
+  Password;
+  @UI: {lineItem: [{position: 30}], identification: [{position: 30}]}
+  Url;
+
+}
